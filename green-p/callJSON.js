@@ -1,7 +1,7 @@
 // Empty locations object
 var cityLots = {};
 
-console.log('map.js init')
+console.log('callJSON.js init')
 
 // GET THE JSON FILE
 $.getJSON('green-p-data.json', function(data) {
