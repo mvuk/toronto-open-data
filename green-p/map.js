@@ -285,32 +285,37 @@ function initMap() {
 
   });
   console.log('before for loop')
-  for (var lot in cityLots) {
-    console.log('just inside for loop')
-    var lotContent = '<h4>' + cityLots[lot].address + '</h4> <p>Capacity: ' + cityLots[lot].capacity + '</p><p>Rate: ' + cityLots[lot].rateText + '</p>'
 
-    var infoWindow = new google.maps.InfoWindow({
-      content: lotContent
-    });
+    for (var lot in cityLots) {
+      console.log('just inside for loop')
+      var lotContent = '<h4>' + cityLots[lot].address + '</h4> <p>Capacity: ' + cityLots[lot].capacity + '</p><p>Rate: ' + cityLots[lot].rateText + '</p>'
 
-    var lotCircle = new google.maps.Circle({
-      strokeColor: '#FFFFFF',
-      strokeOpacity: 0.5,
-      strokeWeight: 2,
-      fillColor: cityLots[lot].colour,
-      fillOpacity: 0.85,
-      map: map,
-      info: lotContent,
-      center: {lat:cityLots[lot].lat,lng:cityLots[lot].lng},
-      radius: (Math.sqrt(cityLots[lot].capacity) +20)* 5,
-    });
-    console.log('before listener');
-    google.maps.event.addListener( lotCircle, 'click', function() {
-       infoWindow.setContent( this.info );
-       infoWindow.open( map, this );
-       infoWindow.setPosition(this.center);
-    });
-    console.log('after listener')
-  }
+      var infoWindow = new google.maps.InfoWindow({
+        content: lotContent
+      });
+
+      var lotCircle = new google.maps.Circle({
+        strokeColor: '#FFFFFF',
+        strokeOpacity: 0.5,
+        strokeWeight: 2,
+        fillColor: cityLots[lot].colour,
+        fillOpacity: 0.85,
+        map: map,
+        info: lotContent,
+        center: {lat:cityLots[lot].lat,lng:cityLots[lot].lng},
+        radius: (Math.sqrt(cityLots[lot].capacity) +20)* 5,
+      });
+      console.log('before listener');
+      google.maps.event.addListener( lotCircle, 'click', function() {
+         infoWindow.setContent( this.info );
+         infoWindow.open( map, this );
+         infoWindow.setPosition(this.center);
+      });
+      console.log('after listener')
+    }
+
+    console.log('before refresh')
+    google.maps.event.trigger(map, 'resize');
+    console.log('after refresh')
 
 }
