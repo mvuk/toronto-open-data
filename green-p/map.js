@@ -47,10 +47,6 @@ $.getJSON('green-p-data.json', function(data) {
         console.log('cityLots appended')
     }
 
-    console.log('before refreshLoop')
-    google.maps.event.trigger(map, 'resize');
-    console.log('after refreshLoop')
-
 });
 
 console.log('cityLots');
