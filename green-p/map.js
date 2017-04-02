@@ -282,8 +282,9 @@ function initMap() {
 ]
 
   });
-
+  console.log('before for loop')
   for (var lot in cityLots) {
+    console.log('just inside for loop')
     var lotContent = '<h4>' + cityLots[lot].address + '</h4> <p>Capacity: ' + cityLots[lot].capacity + '</p><p>Rate: ' + cityLots[lot].rateText + '</p>'
 
     var infoWindow = new google.maps.InfoWindow({
