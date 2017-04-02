@@ -301,13 +301,13 @@ function initMap() {
       center: {lat:cityLots[lot].lat,lng:cityLots[lot].lng},
       radius: (Math.sqrt(cityLots[lot].capacity) +20)* 5,
     });
-
+    console.log('before listener');
     google.maps.event.addListener( lotCircle, 'click', function() {
        infoWindow.setContent( this.info );
        infoWindow.open( map, this );
        infoWindow.setPosition(this.center);
     });
-
+    console.log('after listener')
   }
 
 }
