@@ -284,6 +284,11 @@ function initMap() {
 ]
 
   });
+
+  console.log('before refresh1')
+  google.maps.event.trigger(map, 'resize');
+  console.log('after refresh1')
+
   console.log('before for loop')
 
     for (var lot in cityLots) {
@@ -314,8 +319,8 @@ function initMap() {
       console.log('after listener')
     }
 
-    console.log('before refresh')
+    console.log('before refresh2')
     google.maps.event.trigger(map, 'resize');
-    console.log('after refresh')
+    console.log('after refresh2')
 
 }
