@@ -3,7 +3,7 @@ var cityLots = {};
 
 // GET THE JSON FILE
 $.getJSON('green-p-data.json', function(data) {
-
+    console.log('after getJSON')
     //data is the JSON string, one less because of 0th location
     for (var i = 0; i <= data.carparks.length-1;i++) {
         // turn that into one object
@@ -47,7 +47,7 @@ $.getJSON('green-p-data.json', function(data) {
 
 });
 
-console.log(cityLots);
+console.log('cityLots');
 
 var map;
 var toronto = {lat:43.65,lng:-79.38}
