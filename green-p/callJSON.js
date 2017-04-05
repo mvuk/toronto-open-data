@@ -6,7 +6,7 @@ console.log('callJSON.js init')
 // GET THE JSON FILE
 $.getJSON('green-p-data.json', function(data) {
     console.log('after getJSON')
-    //data is the JSON string, one less because of 0th location
+    //data is the JSON string, one le ss because of 0th location
     for (var i = 0; i <= data.carparks.length-1;i++) {
         console.log('data-carparks-length for loop')
         // turn that into one object
@@ -19,8 +19,8 @@ $.getJSON('green-p-data.json', function(data) {
         var parkingLot = {lat:carparksLat,lng:carparksLng,rate:carparksRate,capacity:carparksCapacity};
 
         // create color values for various rates
-        var rateColour = {};
-        if (carparksRate == false) {
+        var rateColour;
+        if (!carparksRate) {
           rateColour = '#00FF00';
         } else if (carparksRate <= 0.50 ) {
           rateColour = '#66ff00';
@@ -48,5 +48,7 @@ $.getJSON('green-p-data.json', function(data) {
         };
         console.log('cityLots appended')
     }
+    //initMap()
 
+    initMap();
 });
