@@ -5,10 +5,9 @@ console.log('callJSON.js init')
 
 // GET THE JSON FILE
 $.getJSON('green-p-data.json', function(data) {
-    console.log('after getJSON')
+    console.log('XHR happens')
     //data is the JSON string, one le ss because of 0th location
     for (var i = 0; i <= data.carparks.length-1;i++) {
-        console.log('data-carparks-length for loop')
         // turn that into one object
         var carparksLat = parseFloat(data.carparks[i].lat);
         var carparksLng = parseFloat(data.carparks[i].lng);
@@ -46,9 +45,8 @@ $.getJSON('green-p-data.json', function(data) {
           capacity:carparksCapacity,
           address:carparksAddress
         };
-        console.log('cityLots appended')
     }
     //initMap()
-
+    console.log('initMap()')
     initMap();
 });
